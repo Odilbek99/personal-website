@@ -18,11 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 import website
-
+from website import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('site/', include('website.urls')),
+    path('', views.index, name='index'),
 ]
 
 if settings.DEBUG:
