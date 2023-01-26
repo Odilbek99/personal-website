@@ -56,13 +56,11 @@ class StatsModel(models.Model):
     
 class SkillsModel(models.Model):
     skill = models.CharField(max_length=255, help_text='ex: Python, JS, JAVA, C++')
-    percent = models.IntegerField(help_text='Projects, Awards etc..')
+    percentage = models.IntegerField(help_text='It should be in range 0-100', default=0)
    
-    def percentage_paid(self):
-        if self.paid_amount and self.final_price:
-            percentage = round((self.paid_amount / self.final_price * 100), 2)
-        else:
-            percentage = 0
+    def progress(self):
+        percentage = self.percentage
+    
         return format_html(
             '''
             <progress value="{0}" max="100"></progress>

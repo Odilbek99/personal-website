@@ -1,11 +1,24 @@
 from django.contrib import admin
-from .models import HomePageModel,NavBarModel,StatsModel, AboutModel
+from . import models
 
 # Register your models here.
 
-admin.site.register(StatsModel)
-admin.site.register(AboutModel)
-admin.site.register(HomePageModel)
-admin.site.register(NavBarModel)
+admin.site.register(models.StatsModel)
+admin.site.register(models.AboutModel)
+admin.site.register(models.HomePageModel)
+admin.site.register(models.NavBarModel)
 
+@admin.register(models.SkillsModel)
+class SkillsModelAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ('Sales Summary', {
+            'fields': (
+                ('skill','percentage','progress'),
+            )
+        }),
+    )
+    readonly_fields = [
+        'progress'
+    ]
+    list_display = ['skill','progress']
 
