@@ -7,6 +7,7 @@ admin.site.register(models.StatsModel)
 admin.site.register(models.AboutModel)
 admin.site.register(models.HomePageModel)
 admin.site.register(models.NavBarModel)
+admin.site.register(models.InterestModel)
 
 @admin.register(models.SkillsModel)
 class SkillsModelAdmin(admin.ModelAdmin):

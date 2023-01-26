@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from .models import NavBarModel, HomePageModel, AboutModel, StatsModel, SkillsModel
+from . import models
 # Create your views here.
 def index(request):
-    navbar = NavBarModel.objects.all()
-    home = HomePageModel.objects.all()
-    about = AboutModel.objects.get(id=1)
-    stats = StatsModel.objects.all()
-    skills = SkillsModel.objects.all()
+    navbar = models.NavBarModel.objects.all()
+    home = models.HomePageModel.objects.all()
+    about = models.AboutModel.objects.get(id=1)
+    stats = models.StatsModel.objects.all()
+    skills = models.SkillsModel.objects.all()
+    interests = models.InterestModel.objects.all()
 
     context = {
         'navbar': navbar,
@@ -14,6 +15,7 @@ def index(request):
         'about': about,
         'stats': stats,
         'skills': skills,
+        'interests': interests,
         'first_skills': skills[:len(skills)//2],
         'last_skills': skills[len(skills)//2:]
      }

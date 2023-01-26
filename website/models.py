@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.html import format_html
+from colorfield.fields import ColorField
 # Create your models here.
 class HomePageModel(models.Model):
     full_name = models.CharField(max_length=50)
@@ -71,3 +72,11 @@ class SkillsModel(models.Model):
 
     def __str__(self) -> str:
         return self.skill
+
+class InterestModel(models.Model):
+    title = models.CharField(max_length=255, help_text='ex: Football, Pocker, Chess, Coding')
+    color = ColorField(default='#FF0000')
+    icon_class = models.CharField(max_length=255, help_text='choose icons from https://remixicon.com/')
+
+    def __str__(self) -> str:
+        return self.title

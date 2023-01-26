@@ -99,6 +99,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-colorfield"
+version = "0.8.0"
+description = "simple color field for your models with a nice color-picker in the admin-interface."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-colorfield-0.8.0.tar.gz", hash = "sha256:e50423af639858d01c39980eed9970f7ae475610bf0709b81f6b21a3dc9c3f92"},
+    {file = "django_colorfield-0.8.0-py3-none-any.whl", hash = "sha256:b7a25e2c430f4e80726ab171805d0d76d1f82cc7ff3799d60c2682f50d2ca03c"},
+]
+
+[package.dependencies]
+Pillow = ">=9.0.0"
+
+[[package]]
 name = "django-extensions"
 version = "3.2.1"
 description = "Extensions for Django"
@@ -441,4 +456,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "7d0ec73080f0539f67eeb1458a425f3bce43a8337b5399a19d35728d0a330763"
+content-hash = "d5dd8d9a48aafcdaaf6b4405040f06dd62d1f7931bf506a8efee5d1438f60f4d"
