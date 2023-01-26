@@ -38,9 +38,15 @@ class AboutModel(models.Model):
     email = models.EmailField(max_length=255)
     freelance =  models.CharField(max_length=25, choices=FREELANCE_CHOICES, default='NOT AVAILABLE')
     about_me = models.TextField()
+    image = models.ImageField(upload_to='assets/img/', default=None)
 
+
+    def __str__(self) -> str:
+        return self.whoami
 class StatsModel(models.Model):
     title = models.CharField(max_length=255, help_text='Projects, Awards etc..')
     number = models.IntegerField(help_text='Projects, Awards etc..')
     icon = models.CharField(max_length=255, help_text='ccopy icon class from https://icons.getbootstrap.com/')
-    about = models.ForeignKey(AboutModel, on_delete=models.CASCADE, related_name='stats')
+
+    def __str__(self) -> str:
+        return self.title

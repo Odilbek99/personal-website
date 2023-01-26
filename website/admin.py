@@ -5,4 +5,7 @@ from .models import HomePageModel,NavBarModel,StatsModel, AboutModel
 
 admin.site.register(StatsModel)
 admin.site.register(AboutModel)
+admin.site.register(HomePageModel)
+admin.site.register(NavBarModel)
+
 
