@@ -80,3 +80,12 @@ class InterestModel(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+class TestimonialModel(models.Model):
+    author = models.CharField(max_length=255, default='Unknown')
+    image = models.ImageField(upload_to='assets/img/', default=None)
+    position = models.CharField(max_length=255, default=None)
+    text = models.TextField()
+
+    def __str__(self) -> str:
+        return self.author

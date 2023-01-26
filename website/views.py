@@ -8,6 +8,7 @@ def index(request):
     stats = models.StatsModel.objects.all()
     skills = models.SkillsModel.objects.all()
     interests = models.InterestModel.objects.all()
+    testimonials = models.TestimonialModel.objects.all()
 
     context = {
         'navbar': navbar,
@@ -16,6 +17,7 @@ def index(request):
         'stats': stats,
         'skills': skills,
         'interests': interests,
+        'testimonials': testimonials,
         'first_skills': skills[:len(skills)//2],
         'last_skills': skills[len(skills)//2:]
      }
