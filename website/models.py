@@ -43,6 +43,8 @@ class AboutModel(models.Model):
 
     def __str__(self) -> str:
         return self.whoami
+
+        
 class StatsModel(models.Model):
     title = models.CharField(max_length=255, help_text='Projects, Awards etc..')
     number = models.IntegerField(help_text='Projects, Awards etc..')
