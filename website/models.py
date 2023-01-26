@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 # Create your models here.
 class HomePageModel(models.Model):
     full_name = models.CharField(max_length=50)
@@ -44,7 +45,7 @@ class AboutModel(models.Model):
     def __str__(self) -> str:
         return self.whoami
 
-        
+
 class StatsModel(models.Model):
     title = models.CharField(max_length=255, help_text='Projects, Awards etc..')
     number = models.IntegerField(help_text='Projects, Awards etc..')
@@ -52,3 +53,23 @@ class StatsModel(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+class SkillsModel(models.Model):
+    skill = models.CharField(max_length=255, help_text='ex: Python, JS, JAVA, C++')
+    percent = models.IntegerField(help_text='Projects, Awards etc..')
+   
+    def percentage_paid(self):
+        if self.paid_amount and self.final_price:
+            percentage = round((self.paid_amount / self.final_price * 100), 2)
+        else:
+            percentage = 0
+        return format_html(
+            '''
+            <progress value="{0}" max="100"></progress>
+            <span style="font-weight:bold">{0}%</span>
+            ''',
+            percentage
+        )
+
+    def __str__(self) -> str:
+        return self.skill
